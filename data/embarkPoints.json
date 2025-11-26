@@ -1,0 +1,59 @@
+[
+  { "name": "Caminha - Marina", "lat": 41.8792153174786, "lng": -8.838925677289781 },
+  { "name": "Viana do Castelo - Marina", "lat": 41.68587259381136, "lng": -8.837555401381453 },
+  { "name": "Póvoa de Varzim - Marina", "lat": 41.37502599144208, "lng": -8.76776804490388 },
+  { "name": "Vila do Conde - Marina", "lat": 41.34803068204055, "lng": -8.744317243337228 },
+  { "name": "Matosinhos - Porto de Leixões", "lat": 41.1779611156804, "lng": -8.702951751926758 },
+
+  { "name": "Porto - Cais da Ribeira", "lat": 41.13761394313319, "lng": -8.615467071005003 },
+  { "name": "Vila Nova de Gaia - Marina do Douro", "lat": 41.1441006226279, "lng": -8.647758843676291 },
+
+  { "name": "Peso da Régua - Cais da Régua (Douro)", "lat": 41.163, "lng": -7.787 },
+  { "name": "Pinhão - Cais do Pinhão (Douro)", "lat": 41.189, "lng": -7.545 },
+
+  { "name": "Aveiro - Marina da Barra", "lat": 40.644, "lng": -8.749 },
+  { "name": "Figueira da Foz - Marina", "lat": 40.15, "lng": -8.866 },
+
+  { "name": "Coimbra - Cais Mondego", "lat": 40.206, "lng": -8.429 },
+
+  { "name": "Nazaré - Porto de Abrigo", "lat": 39.6, "lng": -9.071 },
+  { "name": "Peniche - Marina", "lat": 39.355, "lng": -9.382 },
+  { "name": "Ericeira - Porto de Pesca", "lat": 38.966, "lng": -9.419 },
+
+  { "name": "Cascais - Marina", "lat": 38.6978, "lng": -9.421 },
+  { "name": "Oeiras - Marina", "lat": 38.676, "lng": -9.32 },
+
+  { "name": "Belém - Estação Fluvial", "lat": 38.6942, "lng": -9.207 },
+  { "name": "Lisboa - Doca de Santo Amaro", "lat": 38.703, "lng": -9.179 },
+  { "name": "Cais do Sodré (Lisboa)", "lat": 38.7066, "lng": -9.1425 },
+  { "name": "Terreiro do Paço (Terminal Fluvial)", "lat": 38.7072, "lng": -9.1362 },
+
+  { "name": "Cacilhas (Terminal Fluvial)", "lat": 38.693, "lng": -9.149 },
+  { "name": "Seixal - Terminal Fluvial", "lat": 38.64, "lng": -9.088 },
+  { "name": "Barreiro - Terminal Fluvial", "lat": 38.66, "lng": -9.072 },
+  { "name": "Montijo - Terminal Fluvial", "lat": 38.705, "lng": -8.973 },
+
+  { "name": "Sesimbra - Porto de Abrigo", "lat": 38.439, "lng": -9.102 },
+  { "name": "Setúbal - Marina", "lat": 38.523, "lng": -8.892 },
+  { "name": "Tróia - Marina", "lat": 38.486, "lng": -8.908 },
+  { "name": "Sines - Porto de Recreio", "lat": 37.959, "lng": -8.869 },
+
+  { "name": "Lagos - Marina", "lat": 37.102, "lng": -8.671 },
+  { "name": "Portimão - Marina", "lat": 37.117, "lng": -8.53 },
+  { "name": "Albufeira - Marina", "lat": 37.088, "lng": -8.266 },
+  { "name": "Vilamoura - Marina", "lat": 37.074, "lng": -8.119 },
+  { "name": "Faro - Marina", "lat": 37.0154, "lng": -7.9352 },
+  { "name": "Olhão - Porto de Recreio", "lat": 37.022433, "lng": -7.837152 },
+  { "name": "Tavira - Cais das Quatro Águas", "lat": 37.116231, "lng": -7.628779 },
+  { "name": "Fuseta - Cais da Fuseta", "lat":37.053632, "lng": -7.743307},
+
+  { "name": "Amieira Marina (Alqueva)", "lat": 38.233, "lng": -7.514 },
+
+  { "name": "Funchal - Marina (Madeira)", "lat": 32.646, "lng": -16.909 },
+  { "name": "Porto Santo - Marina", "lat": 33.051, "lng": -16.332 },
+
+  { "name": "Ponta Delgada - Marina (São Miguel)", "lat": 37.739, "lng": -25.668 },
+  { "name": "Horta - Marina (Faial)", "lat": 38.536, "lng": -28.625 },
+  { "name": "Angra do Heroísmo - Marina (Terceira)", "lat": 38.654, "lng": -27.215 },
+  { "name": "Praia da Vitória - Marina (Terceira)", "lat": 38.732, "lng": -27.057 }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "mini",
+    "name": "Licença Marítima Recreio (até 6m)",
+    "category": "mini",
+    "allowedCategories": ["eco", "adventure"]
+  },
+  {
+    "id": "comfort",
+    "name": "Carta de Patrão Local (6-15m)",
+    "category": "comfort",
+    "allowedCategories": ["eco", "comfort", "deliver"]
+  },
+  {
+    "id": "executive",
+    "name": "Carta de Patrão Costeiro (até 24m)",
+    "category": "executive",
+    "allowedCategories": ["eco", "comfort", "executive"]
+  },
+  {
+    "id": "party",
+    "name": "Carta de Patrão de Alto-Mar",
+    "category": "party",
+    "allowedCategories": ["eco", "comfort", "executive", "party", "adventure", "deliver"]
+  }
+]

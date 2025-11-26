@@ -1,0 +1,696 @@
+/* ===================================================================
+   WAVEUP - Modern CSS Framework com Tailwind
+   Sistema de design completo para plataforma de reservas de barcos
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Cores principais (podem ser sobrescritas via PHP) */
+  --color-primary: #020617;
+  --color-secondary: #0ea5e9;
+  --color-accent: #38bdf8;
+  
+  /* Paleta de cores expandida */
+  --color-primary-soft: #0f172a;
+  --color-primary-lighter: #1e293b;
+  
+  --color-surface: rgba(15, 23, 42, 0.97);
+  --color-surface-alt: rgba(30, 41, 59, 0.90);
+  --color-surface-hover: rgba(51, 65, 85, 0.85);
+  
+  --color-border: #334155;
+  --color-border-subtle: #1e293b;
+  --color-border-focus: var(--color-secondary);
+  
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-subtle: #64748b;
+  
+  /* Estados */
+  --color-success: #10b981;
+  --color-success-bg: rgba(16, 185, 129, 0.1);
+  --color-success-border: rgba(16, 185, 129, 0.3);
+  
+  --color-warning: #f59e0b;
+  --color-warning-bg: rgba(245, 158, 11, 0.1);
+  --color-warning-border: rgba(245, 158, 11, 0.3);
+  
+  --color-error: #ef4444;
+  --color-error-bg: rgba(239, 68, 68, 0.1);
+  --color-error-border: rgba(239, 68, 68, 0.3);
+  
+  --color-info: #06b6d4;
+  --color-info-bg: rgba(6, 182, 212, 0.1);
+  --color-info-border: rgba(6, 182, 212, 0.3);
+  
+  /* Raios de borda */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 32px rgba(14, 165, 233, 0.25);
+  
+  /* Transições */
+  --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  color-scheme: dark;
+}
+
+/* Pequenas utils para casar com as Tailwind classes usadas */
+.bg-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    #0a0f1e 50%,
+    var(--color-primary-soft) 100%
+  );
+  background-attachment: fixed;
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.border-secondary {
+  border-color: var(--color-secondary);
+}
+
+/* ===================================================================
+   BASE & RESET
+   =================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: transparent; /* real bg vem via .bg-primary */
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Efeito de ondas no fundo */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(14, 165, 233, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(56, 189, 248, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(6, 182, 212, 0.04) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+  z-index: 0;
+  animation: wave-drift 30s ease-in-out infinite;
+}
+
+/* Logo gigante em tom de cinzento no fundo */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url('https://wave-up.me/waveup1.ico');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: clamp(320px, 55vw, 800px);
+  filter: grayscale(1);
+  opacity: 0.06;
+  mix-blend-mode: screen;
+}
+
+@keyframes wave-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(5%, -3%) rotate(1deg); }
+  66% { transform: translate(-3%, 5%) rotate(-1deg); }
+}
+
+/* ===================================================================
+   LAYOUT & CONTAINERS
+   =================================================================== */
+
+.waveup-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .waveup-shell {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .waveup-shell {
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* ===================================================================
+   CARDS & SURFACES
+   =================================================================== */
+
+.waveup-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-subtle);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  transition: all var(--transition-normal);
+}
+
+/* Brilho sutil na borda */
+.waveup-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.2),
+    transparent 40%,
+    transparent 60%,
+    rgba(14, 165, 233, 0.15)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.waveup-card:hover::before {
+  opacity: 1;
+}
+
+.waveup-card:hover {
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(-2px);
+  background: var(--color-surface-alt);
+}
+
+/* Card compacto */
+.waveup-card-compact {
+  padding: 1.25rem;
+}
+
+/* Card com glassmorphism intenso */
+.waveup-card-glass {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===================================================================
+   HEADER & NAVIGATION
+   =================================================================== */
+
+.waveup-header {
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--color-border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all var(--transition-normal);
+}
+
+.waveup-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(14, 165, 233, 0.3) 50%,
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.waveup-header:hover::after {
+  opacity: 1;
+}
+
+/* ===================================================================
+   BADGES & CHIPS
+   =================================================================== */
+
+.waveup-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+}
+
+.waveup-badge:hover {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 16px rgba(14, 165, 233, 0.2);
+}
+
+.waveup-badge-success {
+  background: var(--color-success-bg);
+  border-color: var(--color-success-border);
+  color: var(--color-success);
+}
+
+.waveup-badge-warning {
+  background: var(--color-warning-bg);
+  border-color: var(--color-warning-border);
+  color: var(--color-warning);
+}
+
+.waveup-badge-error {
+  background: var(--color-error-bg);
+  border-color: var(--color-error-border);
+  color: var(--color-error);
+}
+
+.waveup-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.waveup-chip:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-border);
+}
+
+/* ===================================================================
+   BUTTONS
+   =================================================================== */
+
+.waveup-btn,
+.waveup-btn-outline,
+.waveup-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Botão principal com gradiente */
+.waveup-btn {
+  background: linear-gradient(
+    135deg,
+    var(--color-secondary) 0%,
+    var(--color-accent) 100%
+  );
+  color: #0f172a;
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.4);
+  z-index: 0;
+}
+
+.waveup-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-secondary) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: -1; /* atrás do texto */
+}
+
+.waveup-btn:hover::before {
+  opacity: 1;
+}
+
+.waveup-btn:hover {
+  color: #f9fafb; /* texto branco no hover */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(14, 165, 233, 0.6);
+}
+
+.waveup-btn:focus-visible {
+  color: #f9fafb;
+}
+
+.waveup-btn:active {
+  transform: translateY(0);
+}
+
+/* Botão outline */
+.waveup-btn-outline {
+  background: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-border);
+}
+
+.waveup-btn-outline:hover {
+  border-color: var(--color-secondary);
+  background: rgba(14, 165, 233, 0.1);
+  box-shadow: 0 0 24px rgba(14, 165, 233, 0.2);
+}
+
+/* Botão ghost */
+.waveup-btn-ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.waveup-btn-ghost:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-text-primary);
+}
+
+/* Estados de focus */
+.waveup-btn:focus-visible,
+.waveup-btn-outline:focus-visible,
+.waveup-btn-ghost:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.5);
+}
+
+/* Estados disabled */
+.waveup-btn[disabled],
+.waveup-btn-outline[disabled],
+.waveup-btn-ghost[disabled],
+.waveup-btn.disabled,
+.waveup-btn-outline.disabled,
+.waveup-btn-ghost.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ===================================================================
+   FORMS & INPUTS
+   =================================================================== */
+
+.waveup-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.waveup-card input[type="text"],
+.waveup-card input[type="email"],
+.waveup-card input[type="password"],
+.waveup-card input[type="tel"],
+.waveup-card input[type="number"],
+.waveup-card select,
+.waveup-card textarea {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-subtle);
+  background: rgba(2, 6, 23, 0.6);
+  color: var(--color-text-primary);
+  font-size: 0.9375rem;
+  padding: 0.875rem 1rem;
+  outline: none;
+  transition: all var(--transition-normal);
+  font-family: inherit;
+}
+
+.waveup-card input::placeholder,
+.waveup-card textarea::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.waveup-card input:focus,
+.waveup-card select:focus,
+.waveup-card textarea:focus {
+  border-color: var(--color-secondary);
+  background: rgba(2, 6, 23, 0.8);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15),
+              0 4px 16px rgba(14, 165, 233, 0.1);
+  transform: translateY(-1px);
+}
+
+.waveup-card input:hover:not(:focus),
+.waveup-card select:hover:not(:focus),
+.waveup-card textarea:hover:not(:focus) {
+  border-color: var(--color-border);
+  background: rgba(2, 6, 23, 0.7);
+}
+
+/* Input com erro */
+.waveup-input-error {
+  border-color: var(--color-error) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* Input com ícone */
+.waveup-input-icon {
+  position: relative;
+}
+
+.waveup-input-icon input {
+  padding-left: 3rem;
+}
+
+.waveup-input-icon .icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-subtle);
+  pointer-events: none;
+}
+
+/* ===================================================================
+   ALERTS & MESSAGES
+   =================================================================== */
+
+.waveup-alert {
+  font-size: 0.875rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.waveup-alert-success {
+  background: var(--color-success-bg);
+  border-color: var(--color-success-border);
+  color: #86efac;
+}
+
+.waveup-alert-warning {
+  background: var(--color-warning-bg);
+  border-color: var(--color-warning-border);
+  color: #fcd34d;
+}
+
+.waveup-alert-error {
+  background: var(--color-error-bg);
+  border-color: var(--color-error-border);
+  color: #fca5a5;
+}
+
+.waveup-alert-info {
+  background: var(--color-info-bg);
+  border-color: var(--color-info-border);
+  color: #67e8f9;
+}
+
+/* ===================================================================
+   LOADING & ANIMATIONS
+   =================================================================== */
+
+.waveup-spinner {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-secondary);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.waveup-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.waveup-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================================================
+   SCROLLBAR CUSTOMIZATION
+   =================================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* ===================================================================
+   UTILITY CLASSES
+   =================================================================== */
+
+.waveup-gradient-text {
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.waveup-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+  margin: 2rem 0;
+}
+
+.waveup-glow {
+  box-shadow: 0 0 32px rgba(14, 165, 233, 0.3);
+}
+
+/* ===================================================================
+   RESPONSIVE ADJUSTMENTS
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .waveup-card {
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    margin: 1rem 1rem 1.5rem;
+  }
+  
+  .waveup-shell {
+    padding: 1rem;
+  }
+  
+  .waveup-btn,
+  .waveup-btn-outline {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

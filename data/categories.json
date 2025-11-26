@@ -1,0 +1,110 @@
+[
+  {
+    "id": "eco",
+    "name": "WaveUp Eco",
+    "capacity": 4,
+    "description": "Lancha rápida ideal para deslocações curtas entre marinas próximas.",
+    "features": [
+      "Opções Básicas",
+      "Viagens rápidas"
+    ],
+    "basePrice": 5.0,
+    "pricePerNauticalMile": 2.2,
+    "pricePerMinute": 1.5,
+    "pricePerKm": 1.19,
+    "avgSpeedKnots": 20,
+    "maxDistanceNm": 20.0,
+    "image": "/mini.webp",
+    "licenseRequired": "Licença Marítima Recreio (até 6m)"
+  },
+    {
+    "id": "adventure",
+    "name": "WaveUp Adventure",
+    "capacity": 6,
+    "description": "Semirrígido preparado para experiências de aventura e mergulho.",
+    "features": [
+      "Opções de aventura",
+      "Jet ski, snorkel, experiências ativas"
+    ],
+    "basePrice": 30.0,
+    "pricePerNauticalMile": 2.8,
+    "pricePerMinute": 1.8,
+    "pricePerKm": 1.31,
+    "avgSpeedKnots": 25,
+    "maxDistanceNm": 20.0,
+    "image": "/adventure.webp",
+    "licenseRequired": "Licença Marítima Recreio (até 6m)"
+  },
+    {
+    "id": "deliver",
+    "name": "WaveUp Deliver",
+    "capacity": 0,
+    "description": "Entrega marítima rápida para restaurantes costeiros e catering no mar.",
+    "features": [
+      "Entregas por via marítima",
+      "Rápido e optimizado para mercadorias"
+    ],
+    "basePrice": 5.0,
+    "pricePerNauticalMile": 3.2,
+    "pricePerMinute": 2.0,
+    "pricePerKm": 1.1,
+    "avgSpeedKnots": 22,
+    "maxDistanceNm": 25.0,
+    "image": "/deliver.webp",
+    "licenseRequired": "Licença Marítima Recreio (até 6m)"
+  },
+  {
+    "id": "comfort",
+    "name": "WaveUp Comfort",
+    "capacity": 8,
+    "description": "Iate médio com lounge confortável, pensado para passeios em família.",
+    "features": [
+      "Viagem mais calma e relaxada",
+      "Ambiente mais confortável"
+    ],
+    "basePrice": 30.0,
+    "pricePerNauticalMile": 3.5,
+    "pricePerMinute": 2.2,
+    "pricePerKm": 1.69,
+    "avgSpeedKnots": 18,
+    "maxDistanceNm": 25.0,
+    "image": "/comfort.webp",
+    "licenseRequired": "Carta de Patrão Local (6-15m)"
+  },
+  {
+    "id": "executive",
+    "name": "WaveUp Executive",
+    "capacity": 16,
+    "description": "Iate executivo com cabines, ideal para eventos corporativos no mar.",
+    "features": [
+      "Serviço Premium",
+      "Mais privacidade e comodidades exclusivas"
+    ],
+    "basePrice": 150.0,
+    "pricePerNauticalMile": 5.5,
+    "pricePerMinute": 4.5,
+    "pricePerKm": 2.2,
+    "avgSpeedKnots": 21,
+    "maxDistanceNm": 65.0,
+    "image": "/executive.webp",
+    "licenseRequired": "Carta de Patrão Costeiro (até 24m)"
+  },
+  {
+    "id": "party",
+    "name": "WaveUp Party",
+    "capacity": 30,
+    "description": "Catamarã com pista de dança, ideal para festas privadas e eventos especiais.",
+    "features": [
+      "Música, ambiente festivo",
+      "Ideal para grupos e festas no mar"
+    ],
+    "basePrice": 220.0,
+    "pricePerNauticalMile": 7.8,
+    "pricePerMinute": 6.5,
+    "pricePerKm": 3,
+    "avgSpeedKnots": 15,
+    "maxDistanceNm": 9999.0,
+    "image": "/party.webp",
+    "licenseRequired": "Carta de Patrão de Alto-Mar"
+  }
+]

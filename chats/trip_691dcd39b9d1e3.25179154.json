@@ -1,0 +1,18 @@
+[
+    {
+        "id": "msg_691dd17e6fc8c3.11865022",
+        "tripId": "trip_691dcd39b9d1e3.25179154",
+        "senderId": "u_9faa30ff3ef681e8",
+        "senderName": "Deyvid Durakov",
+        "text": "Ola",
+        "createdAt": "2025-11-19T14:17:34+00:00"
+    },
+    {
+        "id": "msg_691dd18d47c606.81804754",
+        "tripId": "trip_691dcd39b9d1e3.25179154",
+        "senderId": "u_c5be78c9eab51723",
+        "senderName": "Soraia Cristina Mendes Pereira",
+        "text": "oi",
+        "createdAt": "2025-11-19T14:17:49+00:00"
+    }
+]
